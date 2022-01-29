@@ -1,0 +1,19 @@
+INPUT:
+	Create input setup after importing inputactions package
+		?Question? - how to handle player created keybinds? How to handle multiplayer?
+		Button Modifiers can be used for behaviors that require button combinations, like holding shift with other buttons to run
+		Control schemes can be used to delineate between control types, such as desktop vs gamepad, etc
+	Generate a class for the input controller
+		Binding masks can be utilized can be used to obscure controls in different circumstances
+		Creates abstractions for input events, can be used in a Command scheme
+	Instantiate your new control class in your player script, making sure to assign it on Awake and enable/disable it on enable/disable
+		This keeps the scheme from overlapping others
+	Create subscriptions to events when they are triggered
+	
+	OR
+	
+	Create input setup, but add it to your player object instead of making a class
+	Define controls per script basis, perfectly abstracted and doesn't require public methods
+		must still instantiate input
+	Capable of switching actions maps in the script, cannot do that dynamically with the generated class method
+	
