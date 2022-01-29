@@ -12,6 +12,7 @@ public class PlayerWizardInput : MonoBehaviour
 
     //controls
     private InputAction move;
+    private InputAction spell;
 
     //variables
     Vector2 moveDirection = Vector2.zero;
@@ -19,6 +20,9 @@ public class PlayerWizardInput : MonoBehaviour
     //parameters
     [SerializeField] float moveSpeed = 10.0f;
     [SerializeField] float impulseSpeed = 10.0f;
+    [SerializeField] float launchSpeed = 50f;
+    [SerializeField] GameObject projectile;
+    [SerializeField] GameObject launcher;
 
     private void Awake()
     {
@@ -26,22 +30,42 @@ public class PlayerWizardInput : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         move = playerInput.actions["Move"];
         move.ReadValue<Vector2>();
+        spell = playerInput.actions["Spell"];
     }
 
     private void OnEnable()
     {
         move.Enable();
+        spell.Enable();
     }
 
     private void OnDisable()
     {
         move.Disable();
+        spell.Disable();
+        spell.started -= Spell;
     }
 
     private void Start()
     {
         //testing input subscriptions
         //move.started += Blast;
+        spell.started += Spell;
+    }
+
+    private void Spell(InputAction.CallbackContext context)
+    {
+        //Vector3 mousePosition = Mouse.current.position.ReadValue();
+        //mousePosition.z = Camera.main.nearClipPlane;
+        //Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        //Vector2 worldPosition2D = new Vector2(worldPosition.x, worldPosition.y);
+        //Vector2 launchVector = new Vector2 (worldPosition.x - launcher.transform.position.x, worldPosition.y - launcher.transform.position.y).normalized;
+
+        Vector2 launchVector = new Vector2(launcher.transform.position.x - transform.position.x, launcher.transform.position.y - transform.position.y).normalized;
+        Debug.Log(launchVector);
+        GameObject bolt = Instantiate(projectile, launcher.transform.position, launcher.transform.rotation);
+        bolt.GetComponent<Rigidbody2D>().AddRelativeForce(launchVector*launchSpeed);
+        
     }
 
     //private void Blast(InputAction.CallbackContext context)
