@@ -2,17 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Commander : MonoBehaviour
+public interface Commander
 {
-    // Start is called before the first frame update
-    void Start()
+    void Execute();
+}
+
+public class MoveCommand : Commander
+{
+    Vector2 direction;
+    public MoveCommand(Vector2 direction)
     {
-        
+        this.direction = direction;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Execute()
     {
-        
+
+    }
+}
+
+public class ActionCommand1 : Commander
+{
+    public void Execute()
+    {
+
+    }
+}
+
+public class ActionCommand2 : Commander
+{
+    public void Execute()
+    {
+
+    }
+}
+
+public class AbilityCommand1 : Commander
+{
+    public void Execute()
+    {
+
+    }
+}
+
+public class AbilityCommand2 : Commander
+{
+    public void Execute()
+    {
+
     }
 }

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
+    private PlayerInput playerInput;
+
     // Start is called before the first frame update
     void Start()
     {
