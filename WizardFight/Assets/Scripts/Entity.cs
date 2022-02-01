@@ -10,25 +10,23 @@ public class Entity : MonoBehaviour
     protected float health;
     protected float size;
     
-    private void Move()
+    public virtual void Move(Vector2 direction)
     {
     }
 
-    private void Action1()
+    public virtual void Action1()
     {
     }
 
-    private void Action2()
+    public virtual void Action2()
     {
     }
 
-    private void Ability1()
+    public virtual void Ability1()
     {
     }
 
-    private void Ability2()
+    public virtual void Ability2()
     {
     }
-
-
 }

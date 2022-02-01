@@ -17,3 +17,21 @@ INPUT:
 		must still instantiate input
 	Capable of switching actions maps in the script, cannot do that dynamically with the generated class method
 	
+	
+HIERARCHY:
+	Entity (cruicial data and receives COMMAND strucutre)
+		Wizard
+			Player
+				(Player Classes)
+		(Enemies, non-wizard types)
+	Effect
+		Spell
+		Ability
+	InputHandler (COMMAND)
+	
+CONTROL HIERARCHY:
+	Empty "Player" object(s) handle input through PlayerInput objects, which have actions maps for multiple scenarios
+	Player bodies (using entity class) are instantiated later and utilize the command layer to receive abstracted controls via command, allowing for free switching of entities
+	
+		
+		
