@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface EntityCommand
+public interface Command
 {
     void Execute();
 }
 
-public class MoveCommand : EntityCommand
+public class MoveCommand : Command
 {
     Entity entity;
     Vector2 direction;
@@ -24,7 +24,7 @@ public class MoveCommand : EntityCommand
     }
 }
 
-public class ActionCommand1 : EntityCommand
+public class ActionCommand1 : Command
 {
     Entity entity;
 
@@ -39,7 +39,7 @@ public class ActionCommand1 : EntityCommand
     }
 }
 
-public class ActionCommand2 : EntityCommand
+public class ActionCommand2 : Command
 {
     Entity entity;
 
@@ -53,7 +53,7 @@ public class ActionCommand2 : EntityCommand
     }
 }
 
-public class AbilityCommand1 : EntityCommand
+public class AbilityCommand1 : Command
 {
     Entity entity;
 
@@ -68,7 +68,7 @@ public class AbilityCommand1 : EntityCommand
     }
 }
 
-public class AbilityCommand2 : EntityCommand
+public class AbilityCommand2 : Command
 {
     Entity entity;
 

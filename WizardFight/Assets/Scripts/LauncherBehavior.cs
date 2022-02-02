@@ -17,7 +17,7 @@ public class LauncherBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(mouseNormal() * launcherDistance);
+        //Debug.Log(mouseNormal() * launcherDistance);
         Vector2 parentPosition = new Vector2(parent.transform.position.x, parent.transform.position.y);
         transform.position = parentPosition + (mouseNormal()*launcherDistance);
     }

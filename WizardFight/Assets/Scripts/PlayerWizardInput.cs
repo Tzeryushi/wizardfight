@@ -62,7 +62,7 @@ public class PlayerWizardInput : MonoBehaviour
         //Vector2 launchVector = new Vector2 (worldPosition.x - launcher.transform.position.x, worldPosition.y - launcher.transform.position.y).normalized;
 
         Vector2 launchVector = new Vector2(launcher.transform.position.x - transform.position.x, launcher.transform.position.y - transform.position.y).normalized;
-        Debug.Log(launchVector);
+        //Debug.Log(launchVector);
         GameObject bolt = Instantiate(projectile, launcher.transform.position, launcher.transform.rotation);
         //bolt.GetComponent<Rigidbody2D>().AddRelativeForce(launchVector*launchSpeed);
         bolt.GetComponent<SpastaSpell>().Setup(launchVector, 50f, 50f);
