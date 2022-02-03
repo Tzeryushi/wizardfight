@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: Spells!
+
 public class Wizard : Entity
 {
     private Rigidbody2D rb;
-    [SerializeField] new float speed;
+    //[SerializeField] new float speed;
 
     public override void Move(Vector2 direction)
     {
         this.direction = direction;
-        rb.AddForce(direction * Time.deltaTime * speed, ForceMode2D.Force);
     }
 
     private void Awake()
@@ -21,7 +22,7 @@ public class Wizard : Entity
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = 400;
     }
 
     // Update is called once per frame
@@ -32,6 +33,7 @@ public class Wizard : Entity
 
     private void FixedUpdate()
     {
-        Debug.Log(direction);
+        rb.AddForce(direction * Time.deltaTime * speed, ForceMode2D.Force);
+        direction = Vector2.zero;
     }
 }
