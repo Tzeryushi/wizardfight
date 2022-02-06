@@ -17,6 +17,9 @@ using UnityEngine;
  * This also makes spell swapping easier!
  */
 
+//TODO: Clean up structure. Direction and InitialDirection are functionally indistinguiashable from each other.
+//Locations of projectiles and spell effects will be charted by those effects. Spells are essentially the weapons,
+//the effects themselves are the bullets.
 public abstract class Spell : MonoBehaviour
 {
     [SerializeField] protected float castSpeed = 1;
@@ -39,6 +42,9 @@ public abstract class Spell : MonoBehaviour
     public Spell(Vector2 direction, float speed, float damage)
     {
     }
+
+    public abstract void Fire();
+    public abstract void Fire(Vector2 direction);
 
     //Getters and Setters
     public void SetSpeed(float speed) { this.speed = speed; }

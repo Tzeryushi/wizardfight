@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class SpastaSpell : Spell
 {
-    [SerializeField] SpastaBolt bolt;
+    [SerializeField] GameObject spastaBolt;
 
     public SpastaSpell(Vector2 direction) : base(direction)
     {
@@ -23,7 +23,7 @@ public class SpastaSpell : Spell
         this.speed = speed;
         this.damage = damage;
         this.direction = direction;
-        Destroy(gameObject, 5f);
+        initialDirection = direction;
     }
 
     public void Setup(Vector2 direction, float speed, float damage)
@@ -31,7 +31,19 @@ public class SpastaSpell : Spell
         this.speed = speed;
         this.damage = damage;
         this.direction = direction;
-        Destroy(gameObject, 5f);
+        initialDirection = direction;
+    }
+
+    public override void Fire()
+    {
+        GameObject bolt = Instantiate(spastaBolt, transform.position, transform.rotation);
+        bolt.GetComponent<SpastaBolt>().Setup(new Vector2(1, 0), 50f, 50f);
+    }
+    public override void Fire(Vector2 direction)
+    {
+        direction = direction.normalized;
+        GameObject bolt = Instantiate(spastaBolt, transform.position, transform.rotation);
+        bolt.GetComponent<SpastaBolt>().Setup(direction, 50f, 50f);
     }
 
     private void Update()

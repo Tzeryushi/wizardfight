@@ -7,11 +7,18 @@ using UnityEngine;
 public class Wizard : Entity
 {
     private Rigidbody2D rb;
-    //[SerializeField] new float speed;
+    [SerializeField] GameObject wand;
 
     public override void Move(Vector2 direction)
     {
         this.direction = direction;
+    }
+
+    public override void Action1()
+    {
+        Spell mySpell1 = wand.GetComponent<Spell>();
+        mySpell1.Fire(new Vector2(0, 1));
+        Debug.Log("Test1");
     }
 
     private void Awake()
