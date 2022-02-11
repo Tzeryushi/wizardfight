@@ -27,24 +27,17 @@ public abstract class Spell : MonoBehaviour
     [SerializeField] protected float speedMultiplier = 1;
     [SerializeField] protected float damage = 1;
     [SerializeField] protected float lifespan = 1;
-    protected Vector2 initialDirection;
-    protected Vector2 direction;
-    protected Vector2 location;
+    protected Entity caster;
 
-    public Spell()
-    {
+    public Spell() {}
+    public Spell(Entity caster) {}
+    public Spell(Entity caster, float speed, float damage) {}
 
-    }
-    public Spell(Vector2 direction)
-    {
-        initialDirection = direction;
-    }
-    public Spell(Vector2 direction, float speed, float damage)
-    {
-    }
-
-    public abstract void Fire();
-    public abstract void Fire(Vector2 direction);
+    public virtual void Fire() {} //should be very rarely used, but would be a global spell. Failsafe, preset direction.
+    public virtual void Fire(Vector2 direction) {} //would use the location of the current monobehavior to fire. Uses ownership of spell.
+    public virtual void Fire(Vector2 direction, Vector2 location) {} //uses ownership of spell.
+    public virtual void Fire(GameObject caster, Vector2 direction) {} //basic, spell has ownership and direction. Instantiates on monobehaviour location.
+    public virtual void Fire(GameObject caster, Vector2 direction, Vector2 location) {} //location is given.
 
     //Getters and Setters
     public void SetSpeed(float speed) { this.speed = speed; }
@@ -57,8 +50,4 @@ public abstract class Spell : MonoBehaviour
     public float GetDamage() { return damage; }
     public void SetLifespan(float lifespan) { this.lifespan = lifespan; }
     public float GetLifespan() { return lifespan; }
-    public Vector2 GetInitialDirection() { return initialDirection; }
-    public void SetDirection(Vector2 direction) { this.direction = direction; }
-    public Vector2 GetDirection() { return direction; }
-    public Vector2 GetLocation() { return location; }
 }

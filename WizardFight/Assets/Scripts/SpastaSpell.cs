@@ -11,27 +11,25 @@ public class SpastaSpell : Spell
 {
     [SerializeField] GameObject spastaBolt;
 
-    public SpastaSpell(Vector2 direction) : base(direction)
+    public SpastaSpell() : base()
     {
         speed = 10f;
         damage = 10f;
-        this.direction = direction;
-        initialDirection = direction;
     }
-    public SpastaSpell(Vector2 direction, float speed, float damage) : base(direction, speed, damage)
+    public SpastaSpell(Entity caster) : base(caster)
+    {
+    }
+
+    public SpastaSpell(Entity caster, float speed, float damage) : base(caster, speed, damage)
     {
         this.speed = speed;
         this.damage = damage;
-        this.direction = direction;
-        initialDirection = direction;
     }
 
     public void Setup(Vector2 direction, float speed, float damage)
     {
         this.speed = speed;
         this.damage = damage;
-        this.direction = direction;
-        initialDirection = direction;
     }
 
     public override void Fire()
@@ -46,8 +44,12 @@ public class SpastaSpell : Spell
         bolt.GetComponent<SpastaBolt>().Setup(direction, 50f, 50f);
     }
 
+    public override void Fire(GameObject caster, Vector2 direction)
+    {
+        base.Fire(caster, direction);
+    }
+
     private void Update()
     {
-        transform.position += (Vector3)direction * speed * Time.deltaTime;
     }
 }
