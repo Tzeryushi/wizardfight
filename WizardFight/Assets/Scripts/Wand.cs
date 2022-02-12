@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Wand : MonoBehaviour
 {
-    [SerializeField] float holdDistance = 0.5f;
-    [SerializeField] float wandLength;
     [SerializeField] private GameObject user;
 
     // Start is called before the first frame update

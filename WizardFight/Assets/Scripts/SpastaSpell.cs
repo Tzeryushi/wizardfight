@@ -43,6 +43,12 @@ public class SpastaSpell : Spell
         GameObject bolt = Instantiate(spastaBolt, transform.position, transform.rotation);
         bolt.GetComponent<SpastaBolt>().Setup(direction, 50f, 50f);
     }
+    public override void Fire(Vector2 direction, Vector2 location)
+    {
+        direction = direction.normalized;
+        GameObject bolt = Instantiate(spastaBolt, location, transform.rotation);
+        bolt.GetComponent<SpastaBolt>().Setup(direction, 50f, 50f);
+    }
 
     public override void Fire(GameObject caster, Vector2 direction)
     {

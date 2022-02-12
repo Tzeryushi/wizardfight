@@ -30,8 +30,8 @@ public abstract class Spell : MonoBehaviour
     protected Entity caster;
 
     public Spell() {}
-    public Spell(Entity caster) {}
-    public Spell(Entity caster, float speed, float damage) {}
+    public Spell(Entity caster) {} //in order to define a caster apart from the original user
+    public Spell(Entity caster, float speed, float damage) {} //quickly initialize with some parameters. Likely redundant.
 
     public virtual void Fire() {} //should be very rarely used, but would be a global spell. Failsafe, preset direction.
     public virtual void Fire(Vector2 direction) {} //would use the location of the current monobehavior to fire. Uses ownership of spell.
