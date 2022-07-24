@@ -32,6 +32,7 @@ HIERARCHY:
 CONTROL HIERARCHY:
 	Empty "Player" object(s) handle input through PlayerInput objects, which have actions maps for multiple scenarios
 	Player bodies (using entity class) are instantiated later and utilize the command layer to receive abstracted controls via command, allowing for free switching of entities
-	
+
+Should projectiles have an interface? Better that than direct inheritance, I think
 		
 		

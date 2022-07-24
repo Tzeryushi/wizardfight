@@ -35,19 +35,19 @@ public class SpastaSpell : Spell
     public override void Fire()
     {
         GameObject bolt = Instantiate(spastaBolt, transform.position, transform.rotation);
-        bolt.GetComponent<SpastaBolt>().Setup(new Vector2(1, 0), 50f, 50f);
+        bolt.GetComponent<SpastaBolt>().Setup(new Vector2(1, 0), speed, damage);
     }
     public override void Fire(Vector2 direction)
     {
         direction = direction.normalized;
         GameObject bolt = Instantiate(spastaBolt, transform.position, transform.rotation);
-        bolt.GetComponent<SpastaBolt>().Setup(direction, 50f, 50f);
+        bolt.GetComponent<SpastaBolt>().Setup(direction, speed, damage);
     }
     public override void Fire(Vector2 direction, Vector2 location)
     {
         direction = direction.normalized;
         GameObject bolt = Instantiate(spastaBolt, location, transform.rotation);
-        bolt.GetComponent<SpastaBolt>().Setup(direction, 50f, 50f);
+        bolt.GetComponent<SpastaBolt>().Setup(direction, speed, damage);
     }
 
     public override void Fire(GameObject caster, Vector2 direction)

@@ -641,9 +641,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castSpeed: 0
-  speed: 0
+  speed: 10.05
   speedMultiplier: 0
-  damage: 0
+  damage: 1.24
   lifespan: 0
   spastaBolt: {fileID: 4497339790832544786, guid: 17e727d69d699e94a9803ab920d3d6ba, type: 3}
 --- !u!212 &1967471790
@@ -712,6 +712,10 @@ PrefabInstance:
       propertyPath: wand
       value: 
       objectReference: {fileID: 1967471787}
+    - target: {fileID: 7547107439133383165, guid: 188e5d9b3d8a364499522bd80f72bba6, type: 3}
+      propertyPath: holdDistance
+      value: 0.99
+      objectReference: {fileID: 0}
     - target: {fileID: 7547107439133383167, guid: 188e5d9b3d8a364499522bd80f72bba6, type: 3}
       propertyPath: m_RootOrder
       value: 0
