@@ -1,2 +1,2 @@
 # wizardfight
-An attempt to actually finish a project in Unity.
+An old project used to figure out how to organize classes effectively in Unity. No longer being updated.
